@@ -1,1 +1,14 @@
-print("테스트 성공");
+ const ctx = com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
+ 
+ function checkInternet(){
+ try {
+ var cm = ctx.getSystemService(android.content.Context.CONNECTIVITY_SERVICE);
+ if(cm.getNetworkInfo(cm.TYPE_WIFI).isConnected()) return "WIFI";
+ else if(cm.getNetworkInfo(cm.TYPE_MOBILE).isConnected()) return "DATA";
+ else return null;
+ } catch(e) {
+ return null;
+ }
+ }
+ 
+ print(checkInternet()+"");
