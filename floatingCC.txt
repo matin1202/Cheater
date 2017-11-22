@@ -423,4 +423,6 @@ function floatingButton(){
 	}));
 }
 
+floatingButton();
+
 Matin.toast("실행완료");
