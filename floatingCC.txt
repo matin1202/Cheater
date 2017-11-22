@@ -25,7 +25,7 @@ var MatinFloatingCheater = {
 					var Tmenus = ["시간 고정","토치 횟불화","채팅 청소 버튼 생성","자신의 이름표 숨기기"];
 					var toggle = [];
 					var tf = [stopTime,bright,useCCclear,hideNick];
-					for(var n in Tmenus){
+					for(var n = 0;n<Tmenus.length;n++){
 						toggle[n] = new MatinToggleButton(ctx);
 						setAnimations(toggle[n].t());
 						toggle[n].setText(Tmenus[n]);
@@ -81,7 +81,7 @@ var MatinFloatingCheater = {
 					var menus = ["시간 설정","게임 모드 변경","날씨 설정","레벨과 경험치 설정","스폰 지점 설정","맵 백업","맵 자동 백업 설정","게임 속도 설정","월드 이동","난이도 설정"];
 					var btns = [];
 					var pad = dip2px(ctx, 3);
-					for(let n in menus){
+					for(var n = 0;n<menus.length;n++){
 						btns[n] = makeButton(menus[n]);
 						btns[n].setId(n);
 						btns[n].setPadding(pad ,pad ,pad ,pad);
@@ -168,7 +168,7 @@ var MatinFloatingCheater = {
 					var menus = ["아이템 지급", "아이템 검색", "인벤토리 리셋", "인첸트", "인첸트 해제", "갑옷 입기"];
 					var btns = [];
 					var pad = dip2px(ctx, 3);
-					for(let n in menus){
+					for(var n = 0;n<menus.length;n++){
 						btns[n] = makeButton(menus[n]);
 						btns[n].setId(n);
 						btns[n].setPadding(pad ,pad ,pad ,pad);
@@ -267,7 +267,7 @@ function floatingCC(){
 				var Tbtn = [];
 				var Tmenus = ["World Set","Inventory Set","Server Manager","Entity Manager","Hack","Terror Defense","World Edit"];
 				var tf = [fcc.WS, fcc.IS, fcc.SM, fcc.EM, fcc.H, fcc.TD, fcc.WE];
-				for(let n in Tmenus){
+				for(var n = 0;n<Tmenus.length;n++){
 					Tbtn[n] = new MatinToggleButton();
 					Tbtn[n].setText(Tmenus[n]);
 					Tbtn[n].setChecked(tf[n]);
@@ -303,7 +303,7 @@ function floatingCC(){
 				}
 				var btns = [];
 				var menus = ["채팅 도배\n(벤당해도 본인책임)", "클라이언트\n아이디 삭제\n기기벤 해제", "유틸 덤프", "네이티브 함수 덤프", "적용된 스크립트 목록", "스크립트 수정"];
-				for(let n in menus){
+				for(var n = 0;n<menus.length;n++){
 					btns[n] = makeButton(menus[n]);
 					btns[n].setId(n);
 					setAnimations(btns[n]);
