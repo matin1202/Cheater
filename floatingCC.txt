@@ -266,7 +266,7 @@ function floatingCC(){
 				layout[0].setOrientation(1);
 				layout[1].setOrientation(1);
 				var Tbtn = [];
-				var Tmenus = ["World Set","Inventory Set","Server Manager","Entity Manager","Hack","Terror Defense","World Edit"];
+				var Tmenus = ["World Set\n개발중","Inventory Set","Server Manager\n개발중","Entity Manager\n개발중","Hack\n개발중","Terror Defense\n개발중","World Edit\n개발중"];
 				var tf = [fcc.WS, fcc.IS, fcc.SM, fcc.EM, fcc.H, fcc.TD, fcc.WE];
 				for(var n = 0;n<Tmenus.length;n++){
 					Tbtn[n] = new MatinToggleButton();
