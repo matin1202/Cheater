@@ -394,35 +394,5 @@ function floatingCC(){
 	}));
 }
 
-function floatingButton(){
-	ctx.runOnUiThread(new java.lang.Runnable({
-		run: function(){
-			try{
-				floatingbutton = new android.widget.PopupWindow();
-				var btn = makeButton("F.C.C.");
-				btn.setOnClickListener(new android.view.View.OnClickListener({
-					onClick: function(v){
-						if(floatingbtn!=null){
-							floatingbtn.dismiss();
-							floatingbtn = null;
-						}
-						else{
-							floatingCC();
-						}
-					}
-				}));
-				Matin.sdr(floatingbutton, btn);
-				floatingbutton.setContentView(btn);
-				floatingbutton.setWidth(-2);
-				floatingbutton.setHeight(-2);
-				floatingbutton.showAtLocation(ctx.getWindow().getDecorView(), Left|Top, dip2px(ctx, 60), dip2px(ctx, 50));
-			}catch(e){
-				Matin.error(e);
-			}
-		}
-	}));
-}
-
-floatingButton();
 
 Matin.toast("실행완료");
