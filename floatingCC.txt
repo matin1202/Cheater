@@ -16,7 +16,6 @@ var MatinFloatingCheater = {
 					title.setText("World Set");
 					title.setTextSize(18);
 					title.setTextColor(Green);
-					
 					title.setGravity(Center);
 					layout[0] = new android.widget.LinearLayout(ctx);
 					layout[0].setOrientation(1);
@@ -27,14 +26,14 @@ var MatinFloatingCheater = {
 					var toggle = [];
 					var tf = [stopTime,bright,useCCclear,hideNick];
 					for(var n in Tmenus){
-						toggle[n] = new android.widget.Switch(ctx);
-						setAnimations(toggle[n]);
+						toggle[n] = new MatinToggleButton(ctx);
+						setAnimations(toggle[n].t());
 						toggle[n].setText(Tmenus[n]);
 						toggle[n].setTextColor(White);
 						toggle[n].setChecked(tf[n]);
 						toggle[n].setId(n);
-						toggle[n].setOnCheckedChangeListener(new android.widget.CompoundButton.OnCheckedChangeListener({
-							onCheckedChanged : function(check, onoff){
+						toggle[n].setOnChangedListener(new android.widget.CompoundButton.OnCheckedChangeListener({
+						onCheckedChanged : function(check, onoff){
 								switch(check.getId()){
 									case 0 :
 									if(onoff){
@@ -78,7 +77,7 @@ var MatinFloatingCheater = {
 								}
 							}
 						}));
-					layou[1].addView(toggle[n].t());
+					layout[1].addView(toggle[n].t());
 					var menus = ["시간 설정","게임 모드 변경","날씨 설정","레벨과 경험치 설정","스폰 지점 설정","맵 백업","맵 자동 백업 설정","게임 속도 설정","월드 이동","난이도 설정"];
 					var btns = [];
 					var pad = dip2px(ctx, 3);
@@ -131,18 +130,6 @@ var MatinFloatingCheater = {
 					}
 					var scroll = new android.widget.ScrollView(ctx);
 					scroll.addView(layout[1]);
-					title.setOnClickListener(new android.view.View.OnClickListener({
-						onClick: function(v){
-							if(layout[0].getChildCount()==1){
-								layout[0].addView(scroll);
-								MatinFloatingCheater.windows[0].update(dip2px(ctx, 130), dip2px(ctx, 150));
-							}
-							else{
-								layout[0].removeView(scroll);
-								MatinFloatingCheater.windows[0].update(dip2px(ctx, 130), dip2px(ctx, 25));
-							}
-						}
-					}));
 					layout[0].addView(scroll);
 					Matin.sdr(MatinFloatingCheater.windows[0], title);
 					MatinFloatingCheater.windows[0].setContentView(layout[0]);
@@ -150,13 +137,15 @@ var MatinFloatingCheater = {
 					MatinFloatingCheater.windows[0].setHeight(dip2px(ctx, 150));
 					MatinFloatingCheater.windows[0].setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(MBack));
 					MatinFloatingCheater.windows[0].showAtLocation(ctx.getWindow().getDecorView(), Left|Top, dip2px(ctx, 130), dip2px(ctx, 130));
+					}
 				}catch(e){
 					Matin.error(e);
 				}
 			}
 		}));
-	},
-	INVENTORY_SET: {
+	}
+,
+	INVENTORY_SET: function(){
 		ctx.runOnUiThread(new java.lang.Runnable({
 			run: function(){
 				try{
@@ -188,6 +177,32 @@ var MatinFloatingCheater = {
 							onClick: function(v){
 								switch(v.getId()){
 									case 0 :
+									addItem();
+									break;
+									case 1 :
+									Player.clearInventorySlot(Player.getSelectedSlotId());
+									break;
+									case 2 :
+									setItemName();
+									break;
+									case 3 :
+									for(var n = 0;n<55;n++)
+									Player.clearInventorySlot(n);
+									break;
+									case 4 :
+									itemList();
+									break;
+									case 5 :
+									enchantDialog();
+									break;
+									case 6 :
+								인첸트해제();
+									break;
+									case 7 :
+									fakeInventory();
+									Matin.toast("가상 인벤토리는 플로팅창 형식 입니다.");
+									clientMessage(ChatColor.RED+"게임을 종료하시면 가상 인벤토리가 초기화 됩니다!");
+									break;
 								}
 							}
 						}));
@@ -195,18 +210,6 @@ var MatinFloatingCheater = {
 					}
 					var scroll = new android.widget.ScrollView(ctx);
 					scroll.addView(layout[1]);
-					title.setOnClickListener(new android.view.View.OnClickListener({
-						onClick: function(v){
-							if(layout[0].getChildCount()==1){
-								layout[0].addView(scroll);
-								MatinFloatingCheater.windows[0].update(dip2px(ctx, 130), dip2px(ctx, 150));
-							}
-							else{
-								layout[0].removeView(scroll);
-								MatinFloatingCheater.windows[0].update(dip2px(ctx, 130), dip2px(ctx, 25));
-							}
-						}
-					}));
 					layout[0].addView(scroll);
 					Matin.sdr(MatinFloatingCheater.windows[1], title);
 					MatinFloatingCheater.windows[1].setContentView(layout[0]);
@@ -342,14 +345,14 @@ function floatingCC(){
 								break;
 								case 3 :
 								var dumped = "";
-								for each(var func in net.zhuoweizhang.mcpelauncher.ScriptManager){
+								for each(var func in ScriptManager){
 									try{
 										if(typeof func==="function"){
 											dumped += /\w+ +\w+\s*\(.*\)/.exec(func.toString().split("/*")[1])[0];
 											dumped += ";\n";
 										}
 									}catch(e){
-										Matin.error(e);
+										//null
 									}
 								}
 								showDialog("네이티브 함수 덤프", dumped+"");
@@ -357,12 +360,8 @@ function floatingCC(){
 								break;
 								case 4 :
 								var enable = getEnabledScriptsArray();
-								var scripts = "\n";
-								for(var n in enable){
-									scripts += enabled+"";
-									scripts += "\n";
-								}
-								showDialog("현재 적용중인 스크립트 목록"+scripts+"(이)가 적용 돼 있습니다!");
+								
+								showDialog("적용된 스크립트 목록","현재 적용중인 스크립트 목록\n"+enable.join("\n")+"(이)가 적용 돼 있습니다!");
 								break;
 								case 5 :
 								Matin.toast("현재 사용중인 런쳐를 선택해 주십시오");
