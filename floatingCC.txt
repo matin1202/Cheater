@@ -422,3 +422,5 @@ function floatingButton(){
 		}
 	}));
 }
+
+Matin.toast("실행완료");
